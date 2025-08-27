@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExpenditureController;
 use App\Http\Controllers\UtilisationCertificateController;
 use App\Http\Controllers\UCController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\Auth\LoginController;
 
 // Authentication routes
@@ -28,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
     // UC Generator routes (admin only)
     Route::middleware(['role:admin'])->group(function () {
         Route::get('/uc', [UCController::class, 'index'])->name('uc.index');
+        Route::get('/uc/create', [UCController::class, 'create'])->name('uc.create');
         Route::post('/uc/generate', [UCController::class, 'generate'])->name('uc.generate');
         Route::get('/uc/download-pdf', [UCController::class, 'downloadPdf'])->name('uc.download-pdf');
     });

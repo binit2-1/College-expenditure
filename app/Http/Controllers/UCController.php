@@ -32,6 +32,20 @@ class UCController extends Controller
     }
 
     /**
+     * Show the form for creating a new UC
+     */
+    public function create()
+    {
+        // Get all final approved expenditures
+        $expenditures = Expenditure::with(['submittedBy', 'hodApprovedBy', 'adminApprovedBy'])
+            ->where('status', 'final_approved')
+            ->latest()
+            ->get();
+
+        return view('uc.create', compact('expenditures'));
+    }
+
+    /**
      * Generate UC for selected expenditures
      */
     public function generate(Request $request)

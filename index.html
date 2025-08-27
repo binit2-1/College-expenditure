@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Expenditure Monitoring & UC Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>College Expenditure Monitoring & UC Generator</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#expenditure">Expenditure Monitoring</a></li>
+                <li><a href="#uc-generator">UC Generator</a></li>
+                <li><a href="#reports">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>Total Expenditure</h3>
+                    <p>₹0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Pending UCs</h3>
+                    <p>0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Completed UCs</h3>
+                    <p>0</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="expenditure">
+            <h2>Expenditure Monitoring</h2>
+            <form id="expenditure-form">
+                <label for="item-name">Item Name:</label>
+                <input type="text" id="item-name" required>
+                
+                <label for="amount">Amount (₹):</label>
+                <input type="number" id="amount" required>
+                
+                <label for="date">Date:</label>
+                <input type="date" id="date" required>
+                
+                <label for="category">Category:</label>
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option value="stationery">Stationery</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="events">Events</option>
+                    <option value="salary">Salary</option>
+                    <option value="other">Other</option>
+                </select>
+                
+                <button type="submit">Add Expenditure</button>
+            </form>
+            
+            <table id="expenditure-table">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Amount (₹)</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Expenditure items will be added here dynamically -->
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="uc-generator">
+            <h2>UC Generator</h2>
+            <form id="uc-form">
+                <label for="uc-title">UC Title:</label>
+                <input type="text" id="uc-title" required>
+                
+                <label for="uc-description">Description:</label>
+                <textarea id="uc-description" rows="4" required></textarea>
+                
+                <label for="uc-expenditure">Select Expenditures:</label>
+                <select id="uc-expenditure" multiple>
+                    <!-- Expenditure options will be added here dynamically -->
+                </select>
+                
+                <button type="submit">Generate UC</button>
+            </form>
+            
+            <div id="uc-preview">
+                <h3>UC Preview</h3>
+                <div id="uc-content">
+                    <!-- UC content will be generated here -->
+                </div>
+                <button id="download-uc">Download UC</button>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 College Expenditure Monitoring & UC Generator</p>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
